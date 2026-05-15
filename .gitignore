@@ -6,7 +6,6 @@
 *.sw?
 *.class
 .dirstamp
-Makefile
 a.out
 aclocal.m4
 autom4te.cache/
@@ -52,3 +51,6 @@ Release-SSE2
 # Windows build artefacts
 src/verstub.cpp
 src/version.bin
+
+#for precompiled binaries
+*.wasm
