@@ -425,9 +425,9 @@ void RageLog::ProfileStart(const CString &name, const char *fmt, ...)
 	TimeMap[name]->Start();
 
 	if ( LOG != NULL )
-		LOG->Debug(s);
+		LOG->Debug( "%s\n", s.c_str());
 	else
-		fprintf( stderr, s );
+		fprintf( stderr, "%s\n", s.c_str() );
 }
 
 void RageLog::ProfileStop( const CString &name, const char *fmt, ...)

@@ -283,7 +283,7 @@ void RageBitmapTexture::Create()
 				fFrameWidth, fFrameHeight,
 				fBetterSourceWidth, fBetterSourceHeight,
 				fBetterFrameWidth, fBetterFrameHeight );
-			LOG->Warn( sWarning );
+			LOG->Warn( "%s\n", sWarning.c_str() );
 			Dialog::OK( sWarning, "FRAME_DIMENSIONS_WARNING" );
 		}
 	}
