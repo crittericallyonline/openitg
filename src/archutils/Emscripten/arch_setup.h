@@ -5,9 +5,11 @@
 #include <stdint.h>
 #endif
 
+#include <endian.h>
+
 #if !defined(ENDIAN_LITTLE) && !defined(ENDIAN_BIG)
-#define LITTLE_ENDIAN 1234
-#define BIG_ENDIAN 4321
+#define ENDIAN_LITTLE 1234
+#define ENDIAN_BIG 4321
 #endif
 
 #endif
