@@ -1,5 +1,5 @@
-#include "global.h"
-#include "RageLog.h"
+#include "../../global.h"
+#include "../../RageLog.h"
 #include "USBDriver_Impl_Libusb.h"
 #include <cerrno>
 
