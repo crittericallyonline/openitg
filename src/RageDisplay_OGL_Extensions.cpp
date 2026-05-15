@@ -2,22 +2,12 @@
 
 #define __glext_h_
 
-#if defined(WIN32)
-#include <windows.h>
-#endif
-
 #include <set>
-
-#if !defined(DARWIN)
 # include <GL/gl.h>
 # include <GL/glu.h>
-#else
-# include <OpenGL/gl.h>
-# include <OpenGL/glu.h>
-#endif
 
 #undef __glext_h_
-#include "glext.h"
+#include <GL/glext.h>
 
 #include "RageDisplay_OGL_Extensions.h"
 #include "RageLog.h"
@@ -90,13 +80,13 @@ void GLExt_t::Load( LowLevelWindow *pWind )
 #elif defined(DARWIN)
 	wglSwapIntervalEXT = wglSwapIntervalEXT;
 #endif
-
+#if !defined(__EMSCRIPTEN__) // we dont use `GetProcAddress(const char *)` at all in the emscripten build
 	if( HasExtension("GL_EXT_paletted_texture") )
 	{
 		glColorTableEXT = (PFNGLCOLORTABLEPROC) pWind->GetProcAddress("glColorTableEXT");
 		glGetColorTableParameterivEXT = (PFNGLCOLORTABLEPARAMETERIVPROC) pWind->GetProcAddress("glGetColorTableParameterivEXT");
 	}
-
+#endif
 	if( HasExtension("GL_ARB_multitexture") )
 		glActiveTextureARB = (PFNGLACTIVETEXTUREARBPROC) pWind->GetProcAddress("glActiveTextureARB");
 

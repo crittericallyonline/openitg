@@ -3,24 +3,11 @@
 /* ours may be more up-to-date */
 #define __glext_h_
 
-#if defined(WIN32)
-#include <windows.h>
-#endif
-
-#if !defined(DARWIN)
 # include <GL/gl.h>
 # include <GL/glu.h>
-#else
-/* XXX: Instead, try creating a directory "archutils/Darwin/include/GL", containing "gl.h" and
- * "glu.h", which each contain a single line "#include <OpenGL/gl.h>".  Then, add
- * "archutils/Darwin/include" to your -I paths, so the above <GL/gl.h> includes will work
- * without changes. */
-# include <OpenGL/gl.h>
-# include <OpenGL/glu.h>
-#endif
 
 #undef __glext_h_
-#include "glext.h"
+#include <GL/glext.h>
 
 #include "RageSurface.h"
 #include "RageSurfaceUtils.h"
@@ -33,10 +20,6 @@
 #include <set>
 #include <sstream>
 
-#if defined(DARWIN)
-#include "archutils/Darwin/Vsync.h"
-#endif
-
 #include "RageDisplay.h"
 #include "RageDisplay_OGL.h"
 #include "RageDisplay_OGL_Extensions.h"
@@ -45,11 +28,6 @@
 #include "RageMath.h"
 
 #include "arch/LowLevelWindow/LowLevelWindow.h"
-
-#if defined(_MSC_VER)
-#pragma comment(lib, "opengl32.lib")
-#pragma comment(lib, "glu32.lib")
-#endif
 
 //
 // Globals
@@ -280,23 +258,6 @@ static void TurnOffHardwareVBO()
 	}
 }
 
-#if defined(UNIX)
-#define Font X11___Font
-#define Screen X11___Screen
-#include "GL/glx.h"
-#undef Font
-#undef Screen
-
-Display *g_X11Display = NULL;
-#endif
-
-static void LogGLXDebugInformation()
-{
-#if defined(UNIX)
-	ASSERT( g_X11Display );
-#endif
-}
-
 RageDisplay_OGL::RageDisplay_OGL()
 {
 	LOG->Trace( "RageDisplay_OGL::RageDisplay_OGL()" );
@@ -432,8 +393,6 @@ CString RageDisplay_OGL::Init( VideoModeParams p, bool bAllowUnacceleratedRender
 	LOG->Info( "OGL Texture units: %i", g_iMaxTextureUnits );
 	LOG->Info( "OGL Extensions: %s", glGetString(GL_EXTENSIONS) );
 	LOG->Info( "GLU Version: %s", gluGetString(GLU_VERSION) );
-
-	LogGLXDebugInformation();
 
 	if( IsSoftwareRenderer() )
 	{
