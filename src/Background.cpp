@@ -761,7 +761,7 @@ void BackgroundImpl::Layer::UpdateCurBGChange( const Song *pSong, float fLastMus
 		if( iter == m_BGAnimations.end() )
 		{
 			XNode *pNode = change.m_def.CreateNode();
-			LOG->Warn( "Tried to switch to a background that was never loaded\n" + pNode->GetXML() );
+			LOG->Warn( "%s\n", ("Tried to switch to a background that was never loaded\n" + pNode->GetXML()).c_str() );
 			SAFE_DELETE( pNode );
 			return;
 		}

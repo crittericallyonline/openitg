@@ -427,7 +427,7 @@ void GameCommand::LoadOne( const Command& cmd )
 	else
 	{
 		CString sWarning = ssprintf( "Command '%s' is not valid.", cmd.GetOriginalCommandString().c_str() );
-		LOG->Warn( sWarning );
+		LOG->Warn( "%s\n", sWarning.c_str() );
 		Dialog::OK( sWarning, "INVALID_GAME_COMMAND" );
 	}
 }
@@ -497,6 +497,8 @@ static bool AreStyleAndPlayModeCompatible( const Style *style, PlayMode pm )
 		/* Don't allow battle modes if the style takes both sides. */
 		if( style->m_StyleType==ONE_PLAYER_TWO_SIDES )
 			return false;
+	default:
+		break;
 	}
 
 	return true;
@@ -522,6 +524,8 @@ bool GameCommand::IsPlayable( CString *why ) const
 		case COIN_MODE_HOME:
 		case COIN_MODE_FREE:
 			iCredits = NUM_PLAYERS; /* not iNumCreditsPaid */
+		default:
+			break;
 		}
 		
 		/* With PREFSMAN->m_bDelayedCreditsReconcile disabled, enough credits must be
