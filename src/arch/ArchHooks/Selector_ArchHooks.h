@@ -1,7 +1,7 @@
 #ifndef SELECTOR_ARCH_HOOKS_H
 #define SELECTOR_ARCH_HOOKS_H
 
-#include "arch/arch_platform.h"
+#include "../arch_platform.h"
 
 /* ArchHooks driver selector. */
 #if defined(HAVE_DARWIN)
@@ -15,6 +15,9 @@
 
 #elif defined(HAVE_XBOX) // XXX: Better name for this API?
 #include "ArchHooks_Xbox.h"
+
+#elif defined(__EMSCRIPTEN__)
+#include "ArchHooks_Emscripten.h"
 
 #else
 #error "No suitable ArchHooks available."
