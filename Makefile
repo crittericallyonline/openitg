@@ -14,7 +14,7 @@ LIB = ./lib
 # 	$(CC) src/*.cpp src/**/*.cpp $(INCLUDE) -o ./out/scripts/OpenITG.js $(DEFINE) $(FLAGS)
 
 WebITG:
-	em++ $(BIN)/*.wasm -sMAIN_MODULE $(FLAGS) $(SRC)/*.cpp $(SRC)/**/*.cpp -I$(LIB)/lua/include
+	em++ $(BIN)/*.wasm -sMAIN_MODULE $(FLAGS) $(SRC)/*.cpp $(SRC)/**/*.cpp $(SRC)/**/*.c -I$(LIB)/lua/include -DWITHOUT_NETWORKING
 
 #./bin/*.wasm
 binaries: lua aes
