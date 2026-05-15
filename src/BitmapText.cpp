@@ -695,7 +695,7 @@ void ColorBitmapText::SetText( const CString& _sText, const CString& _sAlternate
 		switch ( curChar )
 		{
 		case ' ':
-			if ( /*( iLineWidth == 0 ) &&*/ ( iWordWidth == 0 ) )
+			if ( /*( iLineWidth == 0 ) &&*/ iWordWidth == 0 )
 				break;
 			sCurrentLine += sCurrentWord + " ";
 			iLineWidth += iWordWidth + iCharLen;
