@@ -289,6 +289,8 @@ void PlayerStageStats::SetLifeRecordAt( float fLife, float fStepsSecond, TapNote
 			m_ComboStatus = COMBSTAT_NONE;
 		}
 		break;
+	default:
+		break;
 	}
 
 	//

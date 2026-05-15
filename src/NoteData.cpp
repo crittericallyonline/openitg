@@ -495,6 +495,7 @@ bool NoteData::RowNeedsAtLeastSimultaneousPresses( int iMinSimultaneousPresses, 
 		case TapNote::mine:
 		case TapNote::empty:
 			continue;	// skip these types - they don't count
+		default: break;
 		}
 		++iNumNotesThisIndex;
 	}

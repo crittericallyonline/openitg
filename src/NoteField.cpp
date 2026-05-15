@@ -717,6 +717,8 @@ void NoteField::DrawPrimitives()
 			case TapNote::empty: // no note here
 			case TapNote::hold_head:
 				continue;	// skip
+			default:
+				break;
 			}
 
 			/* Don't draw hidden (fully judged) steps. */

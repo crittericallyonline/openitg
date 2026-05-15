@@ -224,6 +224,7 @@ void EditCoursesMenu::Left()
 		case ROW_ENTRY_TYPE:	
 			GetSelectedEntry()->type = GetSelectedEntryType();
 			break;
+		default: break;
 		}
 
 		OnRowValueChanged( m_SelectedRow );
@@ -248,6 +249,7 @@ void EditCoursesMenu::Right()
 		case ROW_ENTRY_TYPE:	
 			GetSelectedEntry()->type = GetSelectedEntryType();
 			break;
+		default: break;
 		}
 
 		OnRowValueChanged( m_SelectedRow );

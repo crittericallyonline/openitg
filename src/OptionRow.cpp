@@ -508,6 +508,8 @@ void OptionRow::UpdateText()
 			m_textItems[index]->SetText( sText );
 		}
 		break;
+	default:
+		break;
 	}
 }
 

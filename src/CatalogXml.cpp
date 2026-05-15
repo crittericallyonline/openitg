@@ -129,6 +129,8 @@ void SaveCatalogXml( LoadingWindow *loading_window )
 			case UnlockEntry::TYPE_SONG:	iNumUnlockedSongs++;	break;
 			case UnlockEntry::TYPE_STEPS:	iNumUnlockedSteps++;	break;
 			case UnlockEntry::TYPE_COURSE:	iNumUnlockedCourses++;	break;
+			default:
+				break;
 			}
 		}
 

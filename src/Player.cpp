@@ -319,6 +319,8 @@ void Player::Load( const NoteData& noteData )
 			count %= 4;
 		}
 		break;
+	default:
+		break;
 	}
 
 	int iStartDrawingAtPixels = GAMESTATE->m_bEditing ? -100 : START_DRAWING_AT_PIXELS;
@@ -1132,6 +1134,8 @@ void Player::HandleStep( int col, const RageTimer &tm, bool bHeld )
 				// don't judge the row if this note is a mine or tap attack
 				if( NoteDataWithScoring::IsRowCompletelyJudged( m_NoteData, iIndexOverlappingNote ) )
 					OnRowCompletelyJudged( iIndexOverlappingNote, STATSMAN->m_CurStageStats.fStepsSeconds );
+			default:
+				break;
 			}
 
 			m_LastTapNoteScore = score;
@@ -1407,6 +1411,8 @@ void Player::UpdateTapNotesMissedOlderThan( float fMissIfOlderThanSeconds )
 			case TapNote::empty:
 			case TapNote::attack:
 				continue; /* no note here */
+			default:
+				break;
 			}
 			if( tn.result.tns != TNS_NONE ) /* note here is already hit */
 				continue; 

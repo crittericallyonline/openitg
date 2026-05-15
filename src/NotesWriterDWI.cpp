@@ -17,6 +17,8 @@ CString NotesWriterDWI::NotesToDWIString( const TapNote tnCols[6] )
 		case TapNote::empty:
 		case TapNote::mine:
 			continue;
+		default:
+			break;
 		}
 
 		if( tnCols[col].type == TapNote::hold_head )

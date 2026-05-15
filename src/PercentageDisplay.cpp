@@ -104,6 +104,8 @@ void PercentageDisplay::Refresh()
 				else
 					fPercentDancePoints = fPercentDancePoints / fCurMaxPercentDancePoints;
 				break;
+			default:
+				break;
 			}
 		}
 

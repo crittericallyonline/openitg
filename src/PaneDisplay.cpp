@@ -269,6 +269,8 @@ void PaneDisplay::SetContent( PaneContents c )
 				val += 1;
 			}
 			break;
+		default:
+			break;
 		};
 
 		if( val == RADAR_VAL_UNKNOWN )
@@ -285,6 +287,8 @@ void PaneDisplay::SetContent( PaneContents c )
 			val = roundf( SCALE( val, 0, 1, 0, 10 ) );
 			val = clamp( val, 0, 10 );
 			str = ssprintf( "%.0f", val );
+			break;
+		default:
 			break;
 		}
 
@@ -348,6 +352,8 @@ void PaneDisplay::SetContent( PaneContents c )
 		case SONG_PROFILE_RANK:
 		case COURSE_PROFILE_RANK:
 			str = ssprintf( "%.0f", val );
+		default:
+			break;
 		}
 	}
 
