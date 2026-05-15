@@ -601,6 +601,8 @@ void Actor::UpdateInternal( float fDeltaTime )
 		wrap( m_current.rotation.y, 360.0f );
 		wrap( m_current.rotation.z, 360.0f );
 		break;
+	default:
+		break;
 	}
 
 	UpdateTweening( fDeltaTime );
@@ -617,7 +619,7 @@ void Actor::BeginTweening( float time, TweenType tt )
 	if( m_Tweens.size() > 50 )
 	{
 		CString sError = ssprintf( "Tween overflow: size = %u.  infinitely recursing ActorCommand?", unsigned(m_Tweens.size()) );
-		LOG->Warn( sError );
+		LOG->Warn( "%s\n", sError.c_str() );
 		Dialog::OK( sError );
 		FinishTweening();
 	}
