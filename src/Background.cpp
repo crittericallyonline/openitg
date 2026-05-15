@@ -515,8 +515,9 @@ void BackgroundImpl::LoadFromSong( const Song* pSong )
 			BackgroundUtil::GetGlobalRandomMovies( pSong, "", vsThrowAway, vsNames );
 			break;
 		}
-
+#if !defined(__EMSCRIPTEN__)
 		random_shuffle( vsNames.begin(), vsNames.end() );
+#endif
 		int iSize = min( (int)PREFSMAN->m_iNumBackgrounds, (int)vsNames.size() );
 		vsNames.resize( iSize );
 
