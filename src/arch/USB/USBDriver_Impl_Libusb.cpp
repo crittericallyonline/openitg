@@ -4,7 +4,11 @@
 #include <cerrno>
 
 extern "C" {
+#if defined(__EMSCRIPTEN__)
+#include "../../libusb/include/fakeusb.h"
+#else
 #include <usb.h>
+#endif
 }
 
 /* static struct to ensure the USB subsystem is initialized on start */
