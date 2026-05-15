@@ -1,7 +1,7 @@
 #ifndef IO_USBDEVICE_H
 #define IO_USBDEVICE_H
 
-#include "../../global.h"
+#include "../global.h"
 #include "../ProductInfo.h" // Used to look for PRODUCT_ID_BARE which means STEPMANIA 5, NOT OITG
 
 /* For "DeviceMatches" */
