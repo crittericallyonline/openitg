@@ -31,7 +31,7 @@ bool RageSurfaceUtils::SaveJPEG( RageSurface *surface, RageFile &f, bool bHighQu
 			const jpegSize = iwidth * iheight * iBPP;
 			let pixels = new Uint8ClampedArray(iwidth * iheight * 4);
 			let pixelbuffer = new Uint8ClampedArray(HEAPU8.buffer);
-			pixels.fill(255); // set everything to
+			pixels.fill(255);
 			for(let i=0; i < jpegSize; i+=4){
 				pixels.set(HEAPU8.slice(($0 + i) - Math.floor(i/4), ($0 + i) - Math.floor(i/4) + 3), i); // R
 			};
